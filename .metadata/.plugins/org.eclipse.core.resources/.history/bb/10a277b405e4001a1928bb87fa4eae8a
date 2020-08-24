@@ -1,0 +1,25 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
+
+public class GoogleSearchPagesPOMAdv {
+	
+	WebDriver driver = null;
+	
+	By textbox_search = By.id("lst-ib");
+	
+	By button_search = By.name("btnK");
+	
+	public void setTextInSearchBox(String text) {
+		driver.findElement(textbox_search).sendKeys(text);
+		
+	}
+	
+	public void clickSearchButton() {
+		driver.findElement(button_search).sendKeys(Keys.RETURN);
+		
+	}
+}

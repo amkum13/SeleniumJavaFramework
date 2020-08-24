@@ -1,0 +1,41 @@
+package test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class ModularCode {
+	
+	static String browser;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static void setBrowser() {
+		browser = "Firefox";
+	}
+	
+    public static void setBrowserConfig() {
+    	String projectLocation = System.getProperty("user.dir");
+    	
+    	if(browser == "Firefox") {
+    		System.setProperty("webdriver.gecko.driver", projectLocation+"\\lib\\geckodriver\\geckodriver.exe");
+    		WebDriver driver = new FirefoxDriver();
+    		driver.get("http://firefox.com/");
+    		driver.close();
+    	}
+    	else {
+    		System.setProperty("webdriver.chrome.driver", projectLocation+"\\lib\\chromedriver\\chromedriver.exe");
+    		WebDriver browser = new ChromeDriver();
+    		browser.get("http://google.com/");
+    		browser.close();
+    	}
+	}
+    
+    public static void testRun() {
+		
+	}
+
+}

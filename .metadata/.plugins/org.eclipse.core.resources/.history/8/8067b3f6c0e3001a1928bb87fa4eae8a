@@ -1,0 +1,56 @@
+package config;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Properties;
+
+import test.UsingProperties;
+
+public class PropertiesFile {
+	
+	static String projectLocation = System.getProperty("user.dir");
+	static Properties prop = new Properties();
+	
+	
+	public static void main(String[] args) {
+		readPropertiesFile();
+		writePropertiesFile();
+	}
+	
+//Getting a property from .properties file
+	public static void readPropertiesFile() {
+		
+		try {
+			
+			InputStream input = new FileInputStream(projectLocation+"\\src\\config\\config.properties");
+		    prop.load(input);
+		    String value = prop.getProperty("browser");
+		    System.out.println(value);
+		    UsingProperties.browser= value;
+		    
+		}catch (Exception e) {
+			
+			e.printStackTrace();
+			System.out.println(e);
+		}
+	}
+//Setting a property from .properties file
+	public static void writePropertiesFile() {
+		try {
+			
+			OutputStream output = new FileOutputStream(projectLocation+"\\src\\config\\config.properties");
+		    prop.setProperty("browser", "Chrome");
+		    prop.setProperty("result", "pass");  //can add new prop as well
+		    prop.store(output, null); //null or "any comments"
+		} catch (Exception e) {
+			
+			
+			e.printStackTrace();
+		}
+	}
+	
+
+}

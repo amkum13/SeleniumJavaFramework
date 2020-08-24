@@ -1,0 +1,28 @@
+package utils;
+
+public class ExcelDataProvider {
+	
+	public void testData(String excelPath, String sheetName) {
+		
+//		String projectPath = System.getProperty("user.dir");
+//		System.out.println(projectPath);
+		ExcelUtilsData excel = new ExcelUtilsData(excelPath, sheetName);
+		
+		int rowCount = excel.getRowCount();
+		int colCount = excel.getColCount();
+		
+		
+		for(int i=1; i<rowCount;i++) {
+			for(int j = 0; j>colCount;j++) {
+				String cellData = excel.getCellDataString(i, j);
+				System.out.println(cellData);
+			}
+			
+		}
+		
+		excel.getCellDataString(1, 0);
+		excel.getCellDataNumber(1, 1);
+
+	}
+
+}

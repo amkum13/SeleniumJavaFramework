@@ -1,0 +1,13 @@
+package demo;
+
+import org.apache.logging.log4j.*;
+
+public class Log4jDemo {
+
+	Logger loggger =  LogManager();
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

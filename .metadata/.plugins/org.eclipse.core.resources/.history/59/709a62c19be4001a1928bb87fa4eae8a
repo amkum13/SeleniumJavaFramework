@@ -1,0 +1,19 @@
+package demo;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.message.LoggerNameAwareMessage;
+
+public class Log4jDemo {
+
+	static Logger loggger =  LogManager.getLogger(Log4jDemo.class);
+	
+	public static void main(String[] args) {
+		
+		System.out.println("\n Log4j Demo class \n");
+		
+		
+		
+	}
+
+}

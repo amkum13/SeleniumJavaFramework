@@ -1,0 +1,38 @@
+package utils;
+
+public class ExcelDataProvider {
+	
+	public static void main(String[] args) {
+		String excelpath = "C:\\Users\\AmitKumar\\SeleniumWorkSpaceJava\\3SeleniumJavaFramework\\excel\\data.xlsx";
+		testData(excelpath, "Sheet1");
+	}
+	
+	public static void testData(String excelPath, String sheetName) {
+		
+//		String projectPath = System.getProperty("user.dir");
+//		System.out.println(projectPath);
+		ExcelUtilsData excel1 = new ExcelUtilsData(excelPath, sheetName);
+		
+		int rowCount = excel1.getRowCount();
+		System.out.println(rowCount);
+				
+		int colCount = excel1.getColCount();
+		System.out.println(colCount);
+		
+		System.out.println(excel1.getCellDataString(1, 0));
+		
+		for(int i=1; i<rowCount;i++) {
+			System.out.println("in for loop");
+			   for(int j = 0; j<colCount;j++) {
+				System.out.println("in inner loop");
+				String cellData = excel1.getCellDataString(1, 0);
+				System.out.print(cellData+"  |  ");
+			}
+			System.out.println();
+			
+		}
+		
+
+	}
+
+}

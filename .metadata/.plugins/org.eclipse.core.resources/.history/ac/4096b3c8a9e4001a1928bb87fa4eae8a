@@ -1,0 +1,29 @@
+package config;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class PropertiesFile {
+
+	public static void main(String[] args) {
+		
+
+	}
+	
+	public static void getProperties() {
+		
+		Properties prop = new Properties();
+		String projPlace = System.getProperty("user.dir");
+		
+		try {
+			InputStream input = new FileInputStream(projPlace+"\\src\\test\\java\\config\\config.properties");
+			
+			
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+/**
+ * @author AmitKumar
+ *
+ */
+@org.testng.annotations.Ignore
+package ignoreTests;
+
+

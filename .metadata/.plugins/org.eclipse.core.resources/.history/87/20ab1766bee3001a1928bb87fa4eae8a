@@ -1,0 +1,33 @@
+package config;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class PropertiesFile {
+	
+	
+	public static void main(String[] args) {
+		readProperties();
+	}
+	
+	public static void readProperties() {
+		String projectLocation = System.getProperty("user.dir");
+		Properties prop = new Properties();
+		try {
+			
+			InputStream input = new FileInputStream(projectLocation+"\\src\\config\\config.properties");
+		    prop.load(input);
+		    String value = prop.getProperty("browser");
+		    System.out.println(value);
+		}catch (Exception e) {
+			
+			e.printStackTrace();
+			System.out.println(e);
+		}
+	}
+
+	
+
+}

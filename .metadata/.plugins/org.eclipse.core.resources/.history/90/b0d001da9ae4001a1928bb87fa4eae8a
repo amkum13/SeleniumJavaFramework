@@ -1,0 +1,17 @@
+package demo;
+
+import org.apache.logging.log4j.*;
+
+public class Log4jDemo {
+
+	private static Logger loggger =  LogManager.getLogger(Log4jDemo.class);
+	
+	public static void main(String[] args) {
+		
+		System.out.println("\n Log4j Demo class \n");
+		
+		logger.info("Simple info  log");
+
+	}
+
+}

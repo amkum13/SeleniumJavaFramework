@@ -1,0 +1,32 @@
+package utils;
+
+public class ExcelDataProvider {
+	
+	public static void main(String[] args) {
+		String excelpath = "C:\\Users\\AmitKumar\\SeleniumWorkSpaceJava\\3SeleniumJavaFramework\\excel\\data.xlsx";
+		testData(excelpath, "Sheet1");
+	}
+	
+	public static void testData(String excelPath, String sheetName) {
+		
+//		String projectPath = System.getProperty("user.dir");
+//		System.out.println(projectPath);
+		ExcelUtilsData excel = new ExcelUtilsData(excelPath, sheetName);
+		
+		int rowCount = excel.getRowCount();
+		int colCount = excel.getColCount();
+		
+		
+		for(int i=1; i<rowCount;i++) {
+			for(int j = 0; j>colCount;j++) {
+				String cellData = excel.getCellDataString(i, j);
+				System.out.print(cellData+"  |  ");
+			}
+			System.out.println();
+			
+		}
+		
+
+	}
+
+}

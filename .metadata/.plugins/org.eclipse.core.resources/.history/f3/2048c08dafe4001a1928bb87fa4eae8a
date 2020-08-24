@@ -1,0 +1,80 @@
+package test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+
+import config.PropertiesFile;
+
+public class TestNGDemoWithPropertiesFile {
+	
+	public static String browserName = null;
+	
+	public static WebDriver driver= null;
+    
+	
+	@BeforeTest
+	public void setUpTest() {
+		
+		PropertiesFile.getProperties();
+		
+		if(browserName.equalsIgnoreCase("chrome"))
+		{
+		
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		
+	}
+		else if(browserName.equalsIgnoreCase("firefox"))
+		{
+		
+		WebDriverManager.firefoxdriver().setup();
+		driver = new FirefoxDriver();
+		
+	} 	
+	}
+	
+	@Test
+	public static void googleSearch() {
+				
+		//goto the google.com
+		driver.get("http://google.com/");
+		
+		
+		//types Automation in search box
+		driver.findElement(By.name("q")).sendKeys("Automation");
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) { 
+
+			e.printStackTrace();
+		}
+
+		driver.findElement(By.name("btnK")).sendKeys(Keys.RETURN);
+		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) { 
+			
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@AfterTest
+	public void tearDownTest() {
+		PropertiesFile.setProperties();
+		driver.close();
+		
+		//driver.quit();
+	}
+
+}

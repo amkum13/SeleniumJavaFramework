@@ -1,0 +1,22 @@
+package test;
+
+public class ModularCode {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static void setBrowser() {
+		
+	}
+	
+    public static void setBrowserConfig() {
+		
+	}
+    
+    public static void testRun() {
+		
+	}
+
+}

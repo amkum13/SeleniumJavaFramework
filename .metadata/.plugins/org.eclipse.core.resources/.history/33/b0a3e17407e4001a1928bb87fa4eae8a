@@ -1,0 +1,13 @@
+package test;
+import pages.GoogleSearchPageObjectMAdv;
+
+public class Test3_GoogleSearchPageObjectMAdv {
+
+	public static void main(String[] args) {
+		
+		GoogleSearchPageObjectMAdv model = new GoogleSearchPageObjectMAdv("Automation");
+		
+
+	}
+
+}

@@ -1,0 +1,24 @@
+package utils;
+
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class ExcelUtils {
+	
+	static String projectPath = System.getProperty("user.dir");
+
+	public static void getRowCount() {
+		
+		try {
+			XSSFWorkbook workbook = new XSSFWorkbook(projectPath+"\\excel\\data.xlsx");
+			XSSFSheet sheet = workbook.getSheet("Sheet1");
+			sheet.getPhysicalNumberOfRows();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+	}
+
+}

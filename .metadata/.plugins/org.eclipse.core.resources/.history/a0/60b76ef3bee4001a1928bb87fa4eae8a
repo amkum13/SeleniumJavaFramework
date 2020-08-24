@@ -1,0 +1,58 @@
+package utils;
+
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+	
+
+
+
+public class ExcelUtils {
+	
+	static String projectPath = System.getProperty("user.dir");
+	static XSSFWorkbook workbook;
+	static XSSFSheet sheet;
+	
+	
+	
+	public static void main(String[] args) {
+		getRowCount();
+		getCellData();
+	}
+
+	public static void getRowCount() {
+		
+		try {
+			workbook = new XSSFWorkbook(projectPath+"\\excel\\data.xlsx");
+			sheet = workbook.getSheet("Sheet1");
+			
+			int count = sheet.getPhysicalNumberOfRows();
+			System.out.println("Rows in data.xlsx: "+count);
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+	}
+	
+	public static void getCellData() {
+		
+		try {
+			workbook = new XSSFWorkbook(projectPath+"\\excel\\data.xlsx");
+			sheet = workbook.getSheet("Sheet1");
+			
+			String cellValue = sheet.getRow(0).getCell(0).getStringCellValue();
+
+			double password = sheet.getRow(1).getCell(1).getNumericCellValue();
+			
+			System.out.println("Cell value in data.xlsx: "+cellValue);
+			
+			System.out.println("Password value in data.xlsx: "+password);
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+	}
+
+}

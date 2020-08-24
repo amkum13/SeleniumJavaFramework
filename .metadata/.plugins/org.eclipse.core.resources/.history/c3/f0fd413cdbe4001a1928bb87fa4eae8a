@@ -1,0 +1,22 @@
+package listeners;
+
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+@Listeners(listeners.TestNGListeners.class)
+public class TestNGListenersDemo {
+	 
+	@Test
+	 public void test1() {
+		 System.out.println("In test One");
+	 }
+	 @Test
+	 public void test2() {
+		 System.out.println("In test Two");
+	 }
+	 @Test
+	 public void test3() {
+		 System.out.println("In test Three");
+	 }
+
+}

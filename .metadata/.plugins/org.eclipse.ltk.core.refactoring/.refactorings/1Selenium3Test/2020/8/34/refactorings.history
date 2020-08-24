@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;config.PropertiesFiles&apos; to &apos;PropertiesFile&apos;&#x0D;&#x0A;- Original project: &apos;Selenium3Test&apos;&#x0D;&#x0A;- Original element: &apos;config.PropertiesFiles&apos;&#x0D;&#x0A;- Renamed element: &apos;config.PropertiesFile&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;PropertiesFiles&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;config{PropertiesFiles.java[PropertiesFiles" matchStrategy="1" name="PropertiesFile" qualified="false" references="true" similarDeclarations="false" stamp="1598020978136" textual="false" version="1.0"/>
+</session>

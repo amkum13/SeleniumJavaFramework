@@ -1,0 +1,47 @@
+package headlessChrome;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class HeadlessChromeDemo {
+	static WebDriver driver = null;
+
+	public static void main(String[] args) throws Exception {
+		
+		test();
+		
+
+	}
+	
+	public static void test() throws InterruptedException {
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeOptions option = new ChromeOptions();
+		option.addArguments("headless");
+		option.addArguments("window-size=1920,1080");
+		driver = new ChromeDriver(option);
+		
+		
+		
+		driver.get("https://google.com");
+
+		driver.findElement(By.name("q")).sendKeys("Automation");
+		System.out.println("Page Title:  "+driver.getTitle());
+		
+		Thread.sleep(2000);
+		driver.findElement(By.name("btnK")).sendKeys(Keys.RETURN);
+		
+		driver.close();
+		driver.quit();
+		
+		System.out.println("Test Completed");
+		
+	}
+
+}

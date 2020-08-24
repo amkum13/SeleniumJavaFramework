@@ -1,0 +1,25 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class GoogleSearchPage {
+	
+	private static WebElement element = null;
+	
+	private static WebElement tetsbox_search(WebDriver driver) {
+		element = driver.findElement(By.name("q"));
+		return element;
+		
+	}
+	
+	private static WebElement button_search(WebDriver driver) {
+		element = driver.findElement(By.name("btnK"));
+		return element;
+		
+	}
+
+}

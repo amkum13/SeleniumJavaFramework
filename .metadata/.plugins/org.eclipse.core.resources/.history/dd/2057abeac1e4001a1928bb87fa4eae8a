@@ -1,0 +1,81 @@
+package utils;
+
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+
+
+
+
+public class ExcelUtils {
+
+	String projectPath;
+	XSSFWorkbook workbook;
+	XSSFSheet sheet;
+	
+	public ExcelUtils(String excelPath, String sheetName) {
+				
+		try {
+			projectPath = System.getProperty("user.dir");
+			this.workbook = new XSSFWorkbook(projectPath+"\\excel\\data.xlsx");
+			this.sheet = workbook.getSheet("Sheet1");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		
+	}
+
+
+
+	public static void main(String[] args) {
+		getRowCount();
+		getCellDataString();
+		getCellDataNumber();
+	}
+
+	public static void getRowCount() {
+
+		try {
+			
+
+			int count = sheet.getPhysicalNumberOfRows();
+			System.out.println("Rows in data.xlsx: "+count);
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	public static void getCellDataString(int rowNum, int colNum) {
+
+		try {
+			String cellValue = sheet.getRow(rowNum).getCell(colNum).getStringCellValue();
+
+			System.out.println("String cell value in data.xlsx: "+cellValue);
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	public static void getCellDataNumber(int rowNum, int colNum) {
+
+		try {
+			workbook = new XSSFWorkbook(projectPath+"\\excel\\data.xlsx");
+			sheet = workbook.getSheet("Sheet1");
+
+			double password = sheet.getRow(rowNum).getCell(colNum).getNumericCellValue();
+
+			System.out.println("Numeric cell value in data.xlsx: "+password);
+			
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+
+}
